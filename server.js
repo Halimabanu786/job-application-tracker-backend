@@ -1,3 +1,4 @@
+
 const dns = require("node:dns");
 
 dns.setServers(["8.8.8.8", "8.8.4.4"]);
@@ -21,6 +22,13 @@ app.use("/api/jobs", require("./routes/jobRoutes"));
 
 app.get("/", (req, res) => {
     res.send("Job Application Tracker API is running");
+});
+
+// CI/CD deployment test API
+app.use("/api/happy", (req, res) => {
+    return res.status(200).json({
+        message: "sound is great guy"
+    });
 });
 
 const PORT = 5000;
